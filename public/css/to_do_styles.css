@@ -1,0 +1,39 @@
+body {
+  background-color: #f8f8f8;
+}
+
+.to_do_form {
+  margin: 100px 0px 0px 300px;
+  padding: 100px 50px 100px 50px;
+  width: 600px;
+  height: 800px;
+}
+
+.home_image {
+  background: url('/img/to_do.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 150px;
+}
+.home_image h1 {
+  font-size: 50px;
+}
+
+.home_image li {
+  margin-left: 200px;
+  list-style-type: none;
+}
+
+
+.home_image input {
+  width: 50%;
+}
+
+.home_image button {
+  margin-left: 240px;
+}
+
+.navbar {
+  background: rgba(0,0,0,0.5);
+  border: none;
+}
