@@ -38,11 +38,22 @@ describe(List) do
   end
   describe('.find') do
     it('returns a list by its id') do
-      test_list = List.new({:name => 'Wash the dog', :id => 1})
+      test_list = List.new({:name => 'Wash the dog', :id => nil})
       test_list.save()
-      test_list2 = List.new({:name => 'Wash the dishes', :id => 2})
+      test_list2 = List.new({:name => 'Wash the dishes', :id => nil})
       test_list2.save()
       expect(List.find(test_list.id())).to(eq(test_list))
+    end
+  end
+  describe('#tasks') do
+    it('returns an array of tasks for that list') do
+      test_list = List.new({:name => 'School stuff', :id => nil})
+      test_list.save()
+      test_task = Task.new({:description => 'Math', :list_id => test_list.id()})
+      test_task.save()
+      test_task2 = Task.new({:description => 'English', :list_id => test_list.id()})
+      test_task2.save()
+      expect(test_list.tasks).to(eq([test_task, test_task2]))
     end
   end
 end
