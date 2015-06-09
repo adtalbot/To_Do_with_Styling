@@ -29,4 +29,11 @@ describe(List) do
       expect(List.all()).to(eq([test_list]))
     end
   end
+  describe('#id') do
+    it('sets it id when you save it') do
+      test_list = List.new({:name => 'School', :id => nil})
+      test_list.save()
+      expect(test_list.id()).to(be_an_instance_of(Fixnum))
+    end
+  end
 end
