@@ -16,11 +16,23 @@ class List
     end
     lists
   end
+
   define_method(:save) do
     result = DB.exec("INSERT INTO lists (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first().fetch('id').to_i
   end
+
   define_method(:==) do |another_list|
     self.name().==(another_list.name()).&(self.id().==(another_list.id()))
+  end
+
+  define_singleton_method(:find) do |id|
+    found_list = nil
+    List.all().each() do |list|
+      if list.id().==(id)
+        found_list = list
+      end
+    end
+    found_list
   end
 end

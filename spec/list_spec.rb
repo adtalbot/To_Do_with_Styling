@@ -36,4 +36,13 @@ describe(List) do
       expect(test_list.id()).to(be_an_instance_of(Fixnum))
     end
   end
+  describe('.find') do
+    it('returns a list by its id') do
+      test_list = List.new({:name => 'Wash the dog', :id => 1})
+      test_list.save()
+      test_list2 = List.new({:name => 'Wash the dishes', :id => 2})
+      test_list2.save()
+      expect(List.find(test_list.id())).to(eq(test_list))
+    end
+  end
 end
